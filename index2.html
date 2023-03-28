@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header">
+        <ul>
+            <!-- <form id="add-user-form"> -->
+                <li><input type="text" id="name" placeholder="name"></li>
+                <li><span id="spanName">null</span></li>
+                <li><input type="text" id="age" placeholder="age"></li>
+                <li><button id="add">add</button></li>
+            <!-- </form> -->
+        </ul>
+    </div>
+    <div class="footer">
+        <p>xxxxx</p>
+    </div>
+</body>
+<style>
+    span {
+        display: none;
+    }
+</style>
+<script>
+    let submit = document.getElementById("add")
+    submit.onclick = () => {
+        let valName = document.getElementById("name")
+        let valAge = document.getElementById("age")
+        if (valName.value.length === 0) {
+            let spanName = document.getElementById('spanName')
+            spanName.style.display = "block"
+        } else {
+            let spanName = document.getElementById('spanName')
+            spanName.style.display = "none"
+        }
+    }
+</script>
+
+</html>

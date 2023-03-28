@@ -1,0 +1,4 @@
+- getElementById: trả về một phần tử có thuộc tính id được chỉ định
+- getElementsByClassName : trả về một phần tử có thuộc tính class được chỉ định
+- getElementsByTagName: tìm ra tất cả các thẻ html được chỉ định
+- innerHTML: in thẻ html ra màn hình

@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Inter';
+}
+
+a{
+    text-decoration: none;
+}
+
+header h1{
+    font-size: 30px;
+    padding: 32px 0 36px 36px;
+}
+
+nav{
+    background: #0F6292;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul li{
+    list-style: none;
+    padding: 20px 29px;
+}
+
+ul li a{
+    color: #fff;
+}
+
+.top-nav{
+    display: flex;
+}
+
+.bottom-nav{
+    display: none;
+    position: absolute;
+    top: 0;
+    background: #0F6292;
+    top: 60px;
+    padding: 4px;
+}
+.bottom-nav li{
+    border-bottom: 1px solid #fff;
+    padding-top: 22px;
+    padding-bottom: 0;
+    margin: 0 9px;
+}
+
+.bottom-nav li:last-child{
+    border: none;
+}
+.hov{
+    position: relative;
+}
+
+.hov:hover .bottom-nav{
+    display: block;
+}
+
+.bgr {
+    position: relative;
+}
+
+.bgr img{
+    width: 100%;
+}
+
+.bgr button{
+    position: absolute;
+    bottom: 54px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: #0F6292;
+    padding: 16px 42px;
+    border: 3px solid #E9E8E8;
+    border-radius: 40px;
+}
+
+.search{
+    margin-right: 35px;
+}
+
+.search input{
+    padding: 8px 52px;
+    border: none;
+}
+
+.search button{
+    background: #13005A;
+    color: #fff;
+    padding: 8px 21px;
+    border: none;
+}
+
+.content h1{
+    margin-top: 45px;
+    margin-bottom: 94px;
+    text-align: center;
+    color: #060047;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.column h3{
+    text-align: center;
+    color: #060047;
+}
+
+.content button{
+    margin: auto;
+    display: block;
+    text-align: center;
+    background: #0F6292;
+    padding: 16px 42px;
+    border: 3px solid #E9E8E8;
+    border-radius: 40px;
+    color: #fff;
+    margin-top: 33px;
+    margin-bottom: 68px;
+}
+
+.timeline{
+    background: #0F6292;
+    color: #fff;
+    padding-bottom: 117px;
+}
+
+.timeline h1{
+    margin-bottom: 81px;
+    color: #fff;
+    padding-top: 60px;
+}
+
+footer{
+    background-color: #060047;
+    padding: 292px 156px 60px 156px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer ul{
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+}

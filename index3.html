@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Create New Item</h2>
+
+        <form>
+            <label for="id-current">Current ID:</label>
+            <input type="text" id="id-current" name="id-current"><br>
+            <label for="id-new">New ID:</label>
+            <input type="text" id="id-new" name="id-new"><br>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <div id="table">
+        </div>
+
+    </div>
+    <div>
+        <h2>Item List</h2>
+        <ul id="item-list"></ul>
+    </div>
+</body>
+<script>
+    var arr = [
+        {
+            "id": 1,
+            "IdCurrent": 6751,
+            "IdNew": 589
+        },
+        {
+            "id": 2,
+            "IdCurrent": 6750,
+            "IdNew": 6754
+        }
+    ];
+
+    // Chức năng hiển thị các mục trong DOM
+    const table = document.getElementById("table");
+    function renderTable() {
+        let html = "<tr><th>ID</th><th>IdCurrent</th><th>IdNew</th><th>Action</th></tr>";
+
+        for (let i = 0; i < arr.length; i++) {
+            html += `<tr><td>${arr[i].id}</td><td>${arr[i].IdCurrent}</td>
+                <td>${arr[i].IdNew}</td><td><button onclick="deleteData(${arr[i].id})">Delete</button></td></tr>`;
+        }
+        table.innerHTML = html;
+    }
+
+    // Chức năng thêm mục mới vào mảng và hiển thị trong DOM
+    const addItem = document.getElementById('submit')
+    addItem.onclick = () => {
+        event.preventDefault();
+        var currentIdInput = document.getElementById("id-current");
+        var newIdInput = document.getElementById("id-new");
+        var newItem = {
+            "id": arr.length + 1,
+            "IdCurrent": parseInt(currentIdInput.value),
+            "IdNew": parseInt(newIdInput.value)
+        };
+        arr.push(newItem);
+        renderTable();
+        currentIdInput.value = "";
+        newIdInput.value = "";
+    }
+
+    function updateData(id) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].id === id) {
+                arr[i].IdCurrent = document.getElementById("id-current").value;
+                arr[i].IdNew = document.getElementById("id-new").value;
+                break;
+            }
+        }
+        renderTable();
+    }
+
+    function deleteData(id) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].id === id) {
+                arr.splice(i, 1);
+                break;
+            }
+        }
+        renderTable();
+    }
+
+
+    renderTable();
+
+</script>
+
+</html>
