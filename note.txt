@@ -1,4 +1,37 @@
+- có 6 kiểu dữ liệu : 
+    + number: số
+    + object: thể hiện một đối tượng và các thuộc tính
+    + string: chữ
+    + boolean: true/false
+    + null: không xác định
+    + undefined: không có giá trị
+    + array: Nhóm các giá trị giống nhau
+
+- 3 kiểu biến
+    + var : được sử dụng để khai báo biến trong phạm vi toàn cục có thể khai báo lại hoặc cập nhật lại giá trị của nó\
+    + let : được sử dụng để khai báo  biến trong phạm vi khối (Block scope) có thể gán lại nhưng không thể khai báo lại
+    + const: dùng để khai báo một hằng số trong phạm, vi khối (Block scope) không thể gán lại và khai báo lại
+
+-   + = gán giá trị 
+    + == so sánh trừu tượng so sánh giá trị không so sánh kiểu dữ liệu
+    + === so sánh cân bằng nghiêm ngặt so sánh cả 2
+
+- filter: lọc ra tất cả các phần tử thỏa mãn điều kiện
+- find: lọc và trả về phần tử đầu tiên thỏa mãn điều kiện
+- findIndex: tìm ra Vị trí thỏa mãn điều kiện
+- isArray: kiểm tra xem biến có phải array hay không
+- push: thêm một phần tử vào cuối mảng và trả ra độ dài mới của mảng
+- reverse: đảo ngược mảng
+- shift: xóa phần tử đầu tiên của mảng
+- Splice() : dùng để thêm hoặc xóa một phần tử trong mảng
+- Slice: được sử dụng để trích xuất một phần của mảng và tạo ra một mảng mới chứa phần đó.
+- Split: chia chuỗi thành các chuỗi con và trả về một mảng
+- sort: là một phương thức được sử dụng để sắp xếp các phần tử của một mảng theo thứ tự tăng dần hoặc giảm dần.
+- isEmpty là một hàm trong thư viện Lodash của JavaScript, được sử dụng để kiểm tra xem giá trị đưa vào có phải là một giá trị rỗng hay không.
+ Nó trả về giá trị true nếu giá trị là rỗng và false nếu giá trị không rỗng.
+
 - getElementById: trả về một phần tử có thuộc tính id được chỉ định
 - getElementsByClassName : trả về một phần tử có thuộc tính class được chỉ định
 - getElementsByTagName: tìm ra tất cả các thẻ html được chỉ định
 - innerHTML: in thẻ html ra màn hình
+- return: kết thúc hàm và trả lại giá trị kết quả sau quá trình xử lý hàm
