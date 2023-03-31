@@ -1,0 +1,5 @@
+- variable: biến
+- constant: hằng
+- identifier: định danh
+- data type: kiểu dữ liệu
+- database: cơ sở dữ liệu

@@ -1,18 +1,20 @@
-const ipt = document.getElementById("submit")
+const ipt = document.querySelector("button")
+console.log(ipt);
+
+
 const content = document.getElementById("content")
 const errorValue = document.getElementById("error")
 
-const arr = local()
+var arr = local()
 renderTask(arr)
-
+// deleteItem();
 function renderTask(arr) {
-    console.log(arr);
     let newContent = '<ul>'
-    arr.forEach((arr) => {
+    arr.forEach((arr, index) => {
         newContent += `<li>
             <span>${arr.name}</span>
-            <button class="edit">edit</button>
-            <button class="delete" id=${arr.id}>delete</button>
+            <button onclick="editItem(${index})" class="edit">edit</button>
+            <button class="delete" onclick="deleteItem(${arr.id})" id=${arr.id}>delete</button>
         </li>  <br />`
     })
     newContent += '</ul>'
@@ -20,31 +22,55 @@ function renderTask(arr) {
 }
 // read
 
-ipt.onclick = () => {
+ipt.onclick = (event) => {
+
     if (!content.value) {
         errorValue.style.display = "block"
         return
     }
+
+    const editId = event.target.getAttribute('id')
+    const parseEditId = parseInt(editId)
+    console.log(parseEditId);
+    if (parseEditId === 0 || parseEditId) {
+        arr[parseEditId] = { id: arr.length, name: content.value }
+        event.target.removeAttribute('id')
+    } else {
+        arr.push({ id: arr.length, name: content.value })
+    }
     errorValue.style.display = "none"
-    arr.push({ id: arr.length, name: content.value })
     const myArrayJson = JSON.stringify(arr);
     localStorage.setItem('array', myArrayJson);
     renderTask(arr)
+    content.value = ''
 }
 // create
-const deleteButton = document.querySelectorAll('.delete');
-deleteButton.forEach(button => {
-    button.onclick = () => {
-    //    arr = arr.filter(item => item)
-       console.log(arr);
+
+
+function editItem(index) {
+    let item = local()
+    if (item.length > 0) {
+        console.log(index);
+        content.value = item[index].name
+        ipt.setAttribute('id', index)
     }
-})
+}
+// 
+function deleteItem(id) {
+    const index = arr.filter(el => el.id !== parseInt(id));
+    if (index !== -1) {
+        arr.splice(index, 1);
+        const myArrayJson = JSON.stringify(arr);
+        localStorage.setItem('array', myArrayJson);
+        renderTask(arr)
+    }
+}
 
 
 function local() {
     const myArrayJson = localStorage.getItem('array');
     const myArray = JSON.parse(myArrayJson);
-    return myArray
+    return myArray ? myArray : []
 }
 
 
