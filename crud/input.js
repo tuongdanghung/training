@@ -1,34 +1,50 @@
-const btn = document.getElementById('submit')
-const content = document.getElementById('content')
-let task = getTask()
-renderTask(task)
-btn.onclick = () => {
-    if (!content.value) {
-        alert("Please enter")
-        return false
-    }
-    let task = getTask()
-    task.push({ name: content.value })
+const ipt = document.getElementById("submit")
+const content = document.getElementById("content")
+const errorValue = document.getElementById("error")
 
-    content.value = ''
-    renderTask(task)
-}
+const arr = local()
+renderTask(arr)
 
-function renderTask(task) {
+function renderTask(arr) {
+    console.log(arr);
     let newContent = '<ul>'
-    task.forEach((task) => {
+    arr.forEach((arr) => {
         newContent += `<li>
-            <span>${task.name}</span>
+            <span>${arr.name}</span>
             <button class="edit">edit</button>
-            <button class="delete">delete</button>
-        </li>`
+            <button class="delete" id=${arr.id}>delete</button>
+        </li>  <br />`
     })
-
     newContent += '</ul>'
-
     document.querySelector('#results').innerHTML = newContent
 }
+// read
 
-function  getTask() {
-    return localStorage.getItem('task') ? JSON.parse(localStorage.getItem('task')) : []
+ipt.onclick = () => {
+    if (!content.value) {
+        errorValue.style.display = "block"
+        return
+    }
+    errorValue.style.display = "none"
+    arr.push({ id: arr.length, name: content.value })
+    const myArrayJson = JSON.stringify(arr);
+    localStorage.setItem('array', myArrayJson);
+    renderTask(arr)
 }
+// create
+const deleteButton = document.querySelectorAll('.delete');
+deleteButton.forEach(button => {
+    button.onclick = () => {
+    //    arr = arr.filter(item => item)
+       console.log(arr);
+    }
+})
+
+
+function local() {
+    const myArrayJson = localStorage.getItem('array');
+    const myArray = JSON.parse(myArrayJson);
+    return myArray
+}
+
+

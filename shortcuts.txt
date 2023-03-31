@@ -1,0 +1,35 @@
+- Ctrl + Alt + Mũi tên lên/xuống : Chèn con trỏ trên hoặc dưới dòng hiện tại
+
+- Ctrl + \ : Chia trình chỉnh sửa ra
+
+- Ctrl + Shift + H : Thay thế trong file
+
+- Ctrl + L : Chọn dòng hiện tại
+
+- Ctrl + F2 : Chọn tất cả các kết quả phù hợp của từ hiện tại
+
+- F3 : Tìm cụm từ tìm kiếm khớp tiếp theo
+
+- Shift + Alt + Mũi tên phải : Mở rộng lựa chọn
+
+- Shift + Alt + Mũi tên trái : Thu hẹp lựa chọn
+
+- Ctrl + U : Hoàn tác con trỏ gần nhất
+
+- Shift + Alt + I : Chèn con trỏ ở cuối mỗi dòng được chọn
+
+- Ctrl + P : Đi đến file
+
+- Ctrl + G : Đi đến line
+
+- Ctrl + T : Hiển thị tất cả các biểu tượng
+
+- Ctrl + Shift + O : Đi đến biểu tượng
+
+- Alt + lên/ xuống : thay đổi vị trí các dòng
+
+------- Terminal tích hợp --------
+
+- Ctrl + ` : Hiển thị terminal tích hợp
+
+- Ctrl + Shift + ` : Tạo phiên bản terminal mới
