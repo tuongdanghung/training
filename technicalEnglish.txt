@@ -3,3 +3,8 @@
 - identifier: định danh
 - data type: kiểu dữ liệu
 - database: cơ sở dữ liệu
+- keyword : từ khóa
+- newline : dòng mới
+- kit : bộ dụng cụ
+- define : định nghĩa
+- label : nhãn

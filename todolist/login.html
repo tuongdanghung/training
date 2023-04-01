@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form onsubmit="event.preventDefault()">
+      <label for="">login</label><br />
+      <input  id="name" type="text" />
+      <span id="errorName">chưa có text</span> <br />
+      <!--  -->
+      <label for="">pass</label><br />
+      <input  id="password" type="text" />
+      <span id="errorPassword">chưa có text</span> <br />
+      <!--  -->
+      <button onclick="myLogin()">submit</button>
+    </form>
+<!--  -->
+    <h1>Register</h1>
+    <form onsubmit="event.preventDefault()">
+      <label for="">login</label> <br />
+      <input type="text" id="registerLogin" /> <br />
+      <span id="errorRegisterLogin">chưa có text</span> <br />
+      <!--  -->
+      <label for="">pass</label> <br />
+      <input id="registerPassword" type="text" /> <br />
+      <span id="errorRegisterPassword">chưa có text</span> <br />
+      <!--  -->
+      <button onclick="myRegister()">submit</button>
+    </form>
+  </body>
+  <script src="./login.js"></script>
+</html>
+<style>
+  span {
+    color: red;
+    display: none;
+  }
+</style>
