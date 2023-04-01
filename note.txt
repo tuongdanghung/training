@@ -40,7 +40,7 @@
 - function sum(a, b) {
   return a + b; // trả về tổng của a và b
 }
-
+return ra cái gì thỉ cả function sum chạy ra cái đó
 let result = sum(2, 3); // gọi hàm và lưu giá trị trả về vào biến "result"
 console.log(result); // kết quả xuất ra màn hình là 5
 -------------

@@ -1,5 +1,5 @@
-const ipt = document.querySelector("button")
-console.log(ipt);
+const input = document.querySelector("button")
+console.log(input);
 
 
 const content = document.getElementById("content")
@@ -22,7 +22,7 @@ function renderTask(arr) {
 }
 // read
 
-ipt.onclick = (event) => {
+input.onclick = (event) => {
 
     if (!content.value) {
         errorValue.style.display = "block"
@@ -52,10 +52,10 @@ function editItem(index) {
     if (item.length > 0) {
         console.log(index);
         content.value = item[index].name
-        ipt.setAttribute('id', index)
+        input.setAttribute('id', index)
     }
 }
-// 
+// edit
 function deleteItem(id) {
     const index = arr.filter(el => el.id !== parseInt(id));
     if (index !== -1) {
@@ -66,6 +66,7 @@ function deleteItem(id) {
     }
 }
 
+// delete
 
 function local() {
     const myArrayJson = localStorage.getItem('array');

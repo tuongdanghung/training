@@ -20,6 +20,14 @@ const arr2 = [
 let filter2 = arr2.filter((item) => item.age > 14)
 console.log("filter2", filter2);
 
+let filter3 = arr2.filter((item) => item.age === 14)
+console.log("filter3", ...filter3);
+// dùng để tìm kiếm một phần tử trong mảng
+
+let filter4 = arr2.filter((item) => item.age !== 14)
+console.log("filter4", filter4);
+// dùng để xóa một phần tử trong mảng
+
 let find = arr2.find((item) => item.age > 14)
 console.log("find", find);
 // 
