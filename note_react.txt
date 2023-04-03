@@ -1,0 +1,6 @@
+- Component: là những thành phần giao diện (UI) được định nghĩa độc lập, có thể tái sử sụng và hoàn toàn tách biệt nhau
+- State: là một đối tượng React tích hợp được sử dụng để chứa dữ liệu hoặc thông tin về Component
+- Props: Props là một object được truyền vào trong một components, mỗi components sẽ nhận vào props và trả về react element.
+Props cho phép chúng ta giao tiếp giữa các components với nhau bằng cách truyền tham số qua lại giữa các components
+- stateless functional components : là component nhưng không sử dụng state
+- statefull functional components : là component có sử dụng state
