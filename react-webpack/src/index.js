@@ -9,7 +9,7 @@ function App() {
     useEffect(() => {
         setData([1, 2, 3, 4, 5, 6])
     }, [])
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             <MyComponent chillData={data} />
