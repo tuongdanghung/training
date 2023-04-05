@@ -1,1 +1,9 @@
 - VIEW ENGINE : giúp chúng ta vừa viết html vừa có thể viết các điều kiện logic như if else hay là vòng lặp 
+- MVC : là Model views and controllers
+- Routing: Là một phương thức khai báo để đáp lại request từ client
+- HTTP request: là thông tin được gửi từ client lên server
+- HTTP response: là dữ liệu trả từ server về client
+- Request methods: get, post, put, delete, patch
+- Controller : Điều khiển sự tương tác giữa Model và viewport
+- Model : Quản lý và xử lý các dữ liệu
+- Views : Nơi hiển thị dữ liệu người dùng
