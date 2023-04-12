@@ -1,0 +1,58 @@
+GET http://localhost:5000/api/v1/users/dasdasdasd
+###
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "hung2",
+    "email": "user2@gmail.com",
+    "password": "Hungbang123@",
+}
+###
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "user1@gmail.com",
+    "password": "Hungbang123@"
+}
+
+###
+GET http://localhost:5000/api/v1/user/
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Imh1bmcxIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJyb2xlX2NvZGUiOiJSMSIsImlhdCI6MTY4MTE4NDg4MiwiZXhwIjoxNjgxNjE2ODgyfQ.kM9hm-PId3xxuED8pWFRBfS28lOiYuHn_Ytt0lXTxqg"
+
+###
+GET http://localhost:5000/api/v1/insert
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?name=title
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?order[]=price&&order[]=DESC
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?order[]=price&&order[]=ASC
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?order[]=price&&order[]=ASC&page=2
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?order[]=price&&order[]=ASC&page=2&name=of
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?available[]=5&available[]=10
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?price[]=57&price[]=58&&order[]=price&&order[]=ASC
+Content-Type: application/json

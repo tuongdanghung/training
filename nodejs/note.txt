@@ -1,0 +1,7 @@
+- npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string : tạo bảng
+
+- npx sequelize-cli db:migrate : đẩy lên DB
+
+- npm i bcryptjs : mã hóa password
+
+- npm i jsonwebtoken : tạo token

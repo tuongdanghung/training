@@ -74,3 +74,6 @@ function local() {
     const myArray = JSON.parse(myArrayJson);
     return myArray ? myArray : []
 }
+
+
+

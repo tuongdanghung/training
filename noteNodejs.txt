@@ -7,3 +7,8 @@
 - Controller : Điều khiển sự tương tác giữa Model và viewport
 - Model : Quản lý và xử lý các dữ liệu
 - Views : Nơi hiển thị dữ liệu người dùng
+- 1XX — Informational :
+- 2XX — Success
+- 3XX — Redirection
+- 4XX — Client Error
+- 5XX — Server Error
