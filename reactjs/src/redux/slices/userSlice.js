@@ -1,17 +1,31 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+const token = localStorage.getItem('auth')
+
 export const fetchUser = createAsyncThunk(
-    'users/fetchUser',
-    async () => {
-        const response = await axios.get('http://localhost:5000/api/v1/books')
+    'user',
+    async (user) => {
+        const response = await axios.get('http://localhost:5000/api/v1/user',
+            { headers: { "Authorization": `${user.length !== 0 ? user : token}` } })
         return response.data
+    }
+)
+
+export const updateUser = createAsyncThunk(
+    'update',
+    async (user) => {
+        const headers = {
+            'Authorization': `${token}`
+        };
+        const response = await axios.put('http://localhost:5000/api/v1/user', user, { headers })
+        return response
     }
 )
 
 
 const initialState = {
-    listUsers: [],
+    user: [],
     isloading: false,
     isError: false,
 }
@@ -28,7 +42,12 @@ export const userSlice = createSlice({
             state.isError = false
         })
         builder.addCase(fetchUser.fulfilled, (state, action) => {
-            state.listUsers = action.payload
+            state.user = action.payload
+            state.isloading = false
+            state.isError = false
+        })
+        builder.addCase(updateUser.fulfilled, (state, action) => {
+            state.user = action.payload.data
             state.isloading = false
             state.isError = false
         })

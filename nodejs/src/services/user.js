@@ -39,9 +39,6 @@ export const getOneUser = (userId) => new Promise(async (resolve, reject) => {
         reject(error)
     }
 })
-// details user
-
-
 export const updateUser = ({ userId, ...body }, add) => new Promise(async (resolve, reject) => {
     const userCredentials = {
         ...(body.name && { name: body.name }),
@@ -55,7 +52,6 @@ export const updateUser = ({ userId, ...body }, add) => new Promise(async (resol
         ...(body.street && { street: body.street }),
         ...(body.nation && { nation: body.nation }),
     };
-
     try {
         const response = await db.User.update(userCredentials, {
             where: {
@@ -67,11 +63,37 @@ export const updateUser = ({ userId, ...body }, add) => new Promise(async (resol
                 code: add,
             }
         })
-
+        const data = await db.User.findOne({
+            where: { id: userId },
+            attributes: {
+                exclude: ['password', 'createdAt', 'updatedAt']
+                // khong lay password
+            },
+            include: [
+                {
+                    model: db.Role,
+                    as: 'roleData',
+                    attributes: {
+                        exclude: ['id', 'createdAt', 'updatedAt']
+                        // khong lay password
+                    }
+                }
+            ],
+            include: [
+                {
+                    model: db.Address,
+                    as: 'addressData',
+                    attributes: {
+                        exclude: ['id', 'createdAt', 'updatedAt']
+                        // khong lay password
+                    }
+                }
+            ]
+        })
         resolve({
             err: response[0] > 0 ? 0 : 1,
-            mes: response[0] > 0 ? `${response[0]} Updated successfully` : "Can not updated book",
-            data: response[0]
+            mes: response[0] > 0 ? `${response[0]} Updated successfully` : "Can not updated user",
+            userData: data
         })
     } catch (error) {
         reject(error)

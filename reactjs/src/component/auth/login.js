@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchAuth } from '../../redux/slices/authSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuth } from '../../redux/slices/loginSlice'
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     let navigate = useNavigate();
     const dispatch = useDispatch()
+    const dt = useSelector(state => state.login)
+    const token = localStorage.getItem("auth")
+    useEffect(() => {
+        if (dt.userLogin === 0 || token !== null) {
+            navigate('/');
+        }
+    }, [dt])
     const handleCreate = (e) => {
         e.preventDefault();
         dispatch(fetchAuth({ email, password }))
-        navigate('/');
     }
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">

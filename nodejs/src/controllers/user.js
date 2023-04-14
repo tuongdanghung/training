@@ -20,7 +20,6 @@ export const updateUser = async (req, res) => {
             return badRequest(error.details[0].message, res)
         }
         const response = await services.updateUser(req.body, add)
-
         return res.status(200).json(response)
     } catch (error) {
         return interalServerError(res)
