@@ -44,6 +44,7 @@ export const getBooks = ({ page, limit, order, name, price, available, ...query 
             ]
 
         })
+
         resolve({
             err: response ? 0 : 1,
             mes: response ? "successfully" : "Email đã được sử dụng",
@@ -129,3 +130,26 @@ export const deleteBooks = (bookIds, filename) => new Promise(async (resolve, re
     }
 })
 // DELETE
+
+export const getOneBook = (id) => new Promise(async (resolve, reject) => {
+    try {
+
+        const queries = { raw: true, nest: true }
+        const response = await db.Book.findAndCountAll({
+
+            where: { id: id },
+            ...queries,
+            attributes: {
+                exclude: ['createdAt', 'updatedAt', 'filename']
+                // khong lay password
+            }
+        })
+        resolve({
+            err: response ? 0 : 1,
+            mes: response ? "successfully" : "Sách không tồn tại",
+            book: response
+        })
+    } catch (error) {
+        reject(error)
+    }
+})

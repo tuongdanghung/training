@@ -1,0 +1,49 @@
+.myCustomCarousel .slick-arrow {
+    color: #070606 !important;
+    border: none;
+    outline: none;
+    // background: #242424 !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black !important;
+}
+
+.slick-prev {
+    left: 3% !important;
+    z-index: 1;
+    top: 35% !important;
+}
+
+.slick-next {
+    right: 3% !important;
+    z-index: 1;
+    top: 35% !important;
+}
+
+.slick-list {
+    width: 80%;
+    margin: auto !important;
+}
+
+.img-cover {
+    height: 258px;
+}
+
+.title_type {
+    padding: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.searchbar {
+    margin-top: -17px;
+}
+
+.search-img {
+    height: 60px;
+    width: 50px;
+}

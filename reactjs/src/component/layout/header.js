@@ -3,7 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUser } from '../../redux/slices/userSlice'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -12,22 +12,23 @@ function classNames(...classes) {
 export const Header = () => {
     const navigation = [
         { name: 'Home', href: '/', current: true },
-        { name: 'Travel', href: '/travel', current: false },
-        { name: 'Historical Fiction', href: '/historicalFiction', current: false },
-        { name: 'Mystery', href: '/mystery', current: false },
-        { name: 'Philosophy', href: '/philosophy', current: false },
-        { name: 'Fiction', href: '/fiction', current: false },
-        { name: 'Fantasy', href: '/fantasy', current: false },
-        { name: 'Poetry', href: '/Poetry', current: false }
+        { name: 'Travel', href: '/RT6', current: false },
+        { name: 'Historical Fiction', href: '/IH17', current: false },
+        { name: 'Mystery', href: '/YM7', current: false },
+        { name: 'Philosophy', href: '/HP10', current: false },
+        { name: 'Business', href: '/UB8', current: false },
+        { name: 'Autobiography', href: '/UA13', current: false },
+        { name: 'Fiction', href: '/IF7', current: false },
+        { name: 'Fantasy', href: '/AF7', current: false },
+        { name: 'Poetry', href: '/OP6', current: false },
     ]
     const activeIndex = localStorage.getItem('activeIndex') || 0;
-    const [items, setItems] = useState(navigation.map((item, index) => (index == activeIndex ? { ...item, current: true } : { ...item, current: false })));
+    const [items, setItems] = useState(navigation.map((item, index) => (index === activeIndex ? { ...item, current: true } : { ...item, current: false })));
     const [active, setActive] = useState(activeIndex);
     const dispatch = useDispatch()
     const user = window.localStorage.getItem('auth')
     const pathName = window.location.pathname
     const data = useSelector(state => state.user.user.userData)
-    let navigate = useNavigate();
     useEffect(() => {
         dispatch(fetchUser(user))
         localStorage.setItem('activeIndex', active);
@@ -45,7 +46,7 @@ export const Header = () => {
             {pathName !== '/login' && pathName !== '/register' ? <Disclosure as="nav" className="bg-gray-800">
                 {({ open }) => (
                     <div>
-                        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                        <div className="mx-auto max-w-8xl px-2 sm:px-6 lg:px-8">
                             <div className="relative flex h-16 items-center justify-between">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                     {/* Mobile menu button*/}
@@ -76,7 +77,7 @@ export const Header = () => {
                                             {items.map((item, index) => (
                                                 <Link
                                                     key={item.name}
-                                                    to={item.href}
+                                                    to={item.href !== '/' ? `/category${item.href}` : '/'}
 
                                                     className={classNames(
                                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -111,6 +112,7 @@ export const Header = () => {
                                                     className="h-8 w-8 rounded-full"
                                                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                                     title={data?.name}
+                                                    alt=''
                                                 />
                                             </Menu.Button>
                                         </div>

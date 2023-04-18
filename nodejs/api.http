@@ -30,7 +30,15 @@ GET http://localhost:5000/api/v1/books
 Content-Type: application/json
 
 ###
-GET http://localhost:5000/api/v1/books/?name=title
+GET http://localhost:5000/api/v1/books/?name=
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/v1/books/?page=1
+Content-Type: application/json
+
+###          
+GET http://localhost:5000/api/v1/books/?category_code=RT6
 Content-Type: application/json
 
 ###

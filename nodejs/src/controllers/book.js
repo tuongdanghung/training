@@ -61,3 +61,13 @@ export const deleteBooks = async (req, res) => {
     }
 }
 // DELETE
+
+export const getOneBook = async (req, res) => {
+    try {
+        const response = await services.getOneBook(req)
+        return res.status(200).json(response)
+    } catch (error) {
+        return interalServerError(res)
+    }
+}
+

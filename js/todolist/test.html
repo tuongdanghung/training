@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>CRUD Form</h1>
+    <form id="crud-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <label for="phone">Phone:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        required
+      />
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
+    <div id="output"></div>
+  </body>
+  <script>
+    const form = document.getElementById("crud-form");
+    const output = document.getElementById("output");
+
+    let contacts = [];
+
+    function renderContacts() {
+      output.innerHTML = "";
+      contacts.forEach((contact) => {
+        const div = document.createElement("div");
+        const name = document.createElement("h3");
+        const email = document.createElement("p");
+        const phone = document.createElement("p");
+        const deleteBtn = document.createElement("button");
+
+        name.innerText = contact.name;
+        email.innerText = contact.email;
+        phone.innerText = contact.phone;
+        deleteBtn.innerText = "Delete";
+
+        deleteBtn.addEventListener("click", () => {
+          contacts = contacts.filter((c) => c !== contact);
+          renderContacts();
+        });
+
+        div.appendChild(name);
+        div.appendChild(email);
+        div.appendChild(phone);
+        div.appendChild(deleteBtn);
+        output.appendChild(div);
+      });
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !email || !phone) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const phoneRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+      if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid phone number (e.g. 123-456-7890).");
+        return;
+      }
+
+      const contact = { name, email, phone };
+      contacts.push(contact);
+      renderContacts();
+      form.reset();
+    });
+  </script>
+</html>

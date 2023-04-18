@@ -8,6 +8,9 @@ const router = express.Router();
 
 
 router.get('/', controllers.getBooks)
+router.get(`/book/:id`, (req, res) => {
+    controllers.getOneBook(req.params.id, res);
+})
 
 router.use(verifyToken)
 
