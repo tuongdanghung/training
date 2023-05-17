@@ -88,3 +88,11 @@
 //     return num
 // }
 // console.log("tong So Chan : ", tongSoChan(newNumber));
+
+const b = function tinh_tong(a, b) {
+    return a + b;
+}
+
+const a = 1;
+const c = 2;
+console.log(b(a, c));
